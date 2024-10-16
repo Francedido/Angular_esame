@@ -1,0 +1,41 @@
+
+
+<!-- <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="username">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="password">
+</mat-form-field>
+
+<button mat-flat-button (click)="printValues()">Invia</button>
+ -->
+
+
+ <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Nome:</label>
+        <input id="name" formControlName="username">
+        <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+            Nome obbligatorio.
+        </div> 
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input id="password" formControlName="password">
+        <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched">
+            password non valida.
+        </div> 
+    </div>
+    <!-- <div>
+        <label for="age">Età:</label>
+        <input id="age" formControlName="age">
+        <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+            Età deve essere maggiore di 0.
+        </div> 
+    </div> -->
+
+    <button type="submit">Invia</button>
+ </form>
